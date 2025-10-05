@@ -1,0 +1,30 @@
+name: CI with Email Step
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 24f2005043@ds.study.iitm.ac.in - Setup and Test
+      run: |
+        echo "Hello from ${{ github.actor }}!"
+        echo "Repository: ${{ github.repository }}"
+        echo "This step contains my email address in the name"
+        echo "Current directory:"
+        pwd
+        ls -la
+        
+    - name: Regular test step
+      run: |
+        echo "This is a regular test step"
+        echo "The action is working correctly!"
